@@ -3,8 +3,15 @@ using UnityEngine;
 public class RocketBehavior : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
+    private Vector3 direction;
+
+    void Start()
+    {
+        direction = transform.forward;
+    }
+
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime, Space.Self);
+        transform.position += direction * speed * Time.deltaTime;
     }
 }
